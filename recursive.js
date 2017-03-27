@@ -32,6 +32,16 @@ console.log(prime_factors(123123123)) // [3, 3, 41, 333667]
 
 let simple_recursive = (number) => {
   // write your code here
+  let str = number.toString();
+  if (str.length === 1) {
+	  return parseInt(str);
+  } else {
+	  let product = 1;
+	  for (let i = 0; i < str.length; i++) {
+		  product *= parseInt(str[i]);
+	  }
+	  return simple_recursive(product);
+  }
 }
 
 console.log(simple_recursive(39))  // 4
