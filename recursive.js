@@ -3,42 +3,17 @@
 // -----------------------------------------------------------------------------
 
 // Release 0
-function isPrime(num) {
-    for ( var i = 2; i < num; i++ ) {
-        if ( num % i === 0 ) {
-            return false;
-        }
-    }
-    return true;
-}
-function multiply (array) {
-    var sum=1;
-    for (var i=0; i<array.length; i++) {
-            sum = sum * array[i];
-    }
-    return sum;
-}
+
 let prime_factors = (angka, hasil = []) => {
-var factors=[];
-for (var i=2; i<=angka; i++){
-    if (angka % i === 0){
-      factors.push(i);
+  for( var i = 2; i <= angka; i++ ){
+    if (angka % i === 0) {
+      hasil.push(i);
+      return prime_factors(angka/i,hasil);
     }
-}
-for (var j=0; j<factors.length; j++){
-  if(isPrime(factors[j])){
-    hasil.push(factors[j]);
   }
+  return hasil;
 }
-while (multiply(hasil) !== angka){
-  if(isPrime(angka/multiply(hasil))){
-    hasil.push(angka/multiply(hasil));
-  } else{
-    hasil.push(hasil[0]);
-  }
-}
-return hasil.sort();
-}
+
 
 
 console.log(prime_factors(3))  // [3]
@@ -52,7 +27,20 @@ console.log(prime_factors(123123123)) // [3, 3, 41, 333667]
 // Release 1
 
 let simple_recursive = (number) => {
-  // write your code here
+var arr = number.toString().split("");
+var arnum=[];
+var sum=1;
+for (var i=0; i<arr.length; i++){
+   arnum.push(Number(arr[i]))
+}
+for (var j=0; j<arnum.length; j++){
+  sum*=arnum[j];
+}
+if (arnum.length!==1) {
+arnum.splice(0,arnum.length,sum).toString().split("");
+return simple_recursive(arnum);
+}
+return arnum;
 }
 
 console.log(simple_recursive(39))  // 4
