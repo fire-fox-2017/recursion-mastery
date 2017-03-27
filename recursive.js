@@ -5,7 +5,16 @@
 // Release 0
 
 let prime_factors = (angka, hasil = []) => {
-  // write your code here
+if (angka < 2){
+     return hasil;
+} else {
+     for (let i = 2; i <= angka; i++){
+          if(angka%i===0){
+               hasil.push(i);
+               return prime_factors(angka/i,hasil)
+          }
+     }
+}
 }
 
 console.log(prime_factors(3))  // [3]
