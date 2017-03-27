@@ -28,7 +28,16 @@ console.log(prime_factors(123123123)) // [3, 3, 41, 333667]
 // Release 1
 
 let simple_recursive = (number) => {
-  // write your code here
+  var temp = 1;
+  var temp_2 = String(number);
+  if (temp_2.length === 1){
+       return number;
+ } else {
+      for (var i = 0; i < temp_2.length  ;i++){
+           temp = temp * Number(temp_2[i]);
+      }
+      return simple_recursive(Number(temp));
+}
 }
 
 console.log(simple_recursive(39))  // 4
