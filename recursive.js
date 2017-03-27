@@ -6,6 +6,18 @@
 
 let prime_factors = (angka, hasil = []) => {
   // write your code here
+  let root = Math.sqrt(angka);
+  let i = 2;
+  for (; i <= root; i++) {
+	  if (angka % i === 0) {
+		  break;
+	  }
+  }
+  if (i > root) {
+	  i = angka;
+  }
+  hasil.push(i);
+  return (i === angka) ? hasil : prime_factors(angka / i, hasil);
 }
 
 console.log(prime_factors(3))  // [3]
