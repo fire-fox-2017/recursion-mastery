@@ -8,6 +8,7 @@ let prime_factors = (angka, hasil = []) => {
   // write your code here
   for (var i=2; i<=angka; i++){
     if(angka%i === 0){
+      hasil.push(i);
       return prime_factors(angka/i, hasil);
     }
   }
