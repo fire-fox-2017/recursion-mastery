@@ -27,20 +27,20 @@ console.log(prime_factors(123123123)) // [3, 3, 41, 333667]
 // Release 1
 
 let simple_recursive = (number) => {
-var arr = number.toString().split("");
-var arnum=[];
-var sum=1;
-for (var i=0; i<arr.length; i++){
-   arnum.push(Number(arr[i]))
-}
-for (var j=0; j<arnum.length; j++){
-  sum*=arnum[j];
-}
-if (arnum.length!==1) {
-arnum.splice(0,arnum.length,sum).toString().split("");
-return simple_recursive(arnum);
-}
-return arnum;
+  var arr = number.toString().split("");
+  var arnum=[];
+  var sum=1;
+  for (var i=0; i<arr.length; i++){
+     arnum.push(Number(arr[i]))
+  }
+  for (var j=0; j<arnum.length; j++){
+    sum*=arnum[j];
+  }
+  if (arnum.length!==1) {
+    arnum.splice(0,arnum.length,sum).toString().split("");
+    return simple_recursive(arnum);
+  }
+  return arnum;
 }
 
 console.log(simple_recursive(39))  // 4
