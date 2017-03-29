@@ -38,16 +38,9 @@ let simple_recursive = (number) => {
   }else{
     for(let i=0;i<num.length;i++){
       tampung *=parseInt(num[i]);
-
     }
-
     return simple_recursive(tampung);
-
   }
-
-
-
-  // write your code here
 }
 
 console.log(simple_recursive(39))  // 4
