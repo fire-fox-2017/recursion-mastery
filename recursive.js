@@ -1,13 +1,25 @@
 'use strict'
 
-// -----------------------------------------------------------------------------
+let prime_factors = (angka, hasil=[]) => {
+   var bool=true;
+  var i=1;
+  var sisa;
 
-// Release 0
-
-let prime_factors = (angka, hasil = []) => {
-  // write your code here
+  while(bool && i<angka){
+    i++;
+      if((angka/i)%1===0){
+        sisa=angka/i;
+        bool=false;
+        console.log(angka+" "+sisa);
+      }
+  }
+  if(bool==true){
+    return hasil;
+  }else{
+      hasil.push(i);
+      return prime_factors(sisa,hasil);
+  }
 }
-
 console.log(prime_factors(3))  // [3]
 console.log(prime_factors(6))  // [2,3]
 console.log(prime_factors(8))  // [2,2,2]
@@ -19,7 +31,16 @@ console.log(prime_factors(123123123)) // [3, 3, 41, 333667]
 // Release 1
 
 let simple_recursive = (number) => {
-  // write your code here
+  let num = number.toString();
+  let tampung=1;
+  if(num.length===1){
+    return num;
+  }else{
+    for(let i=0;i<num.length;i++){
+      tampung *=parseInt(num[i]);
+    }
+    return simple_recursive(tampung);
+  }
 }
 
 console.log(simple_recursive(39))  // 4
