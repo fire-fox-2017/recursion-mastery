@@ -12,7 +12,9 @@ let prime_factors = (angka, hasil = []) => {
       return prime_factors(angka/i, hasil);
     }
   }
+
   return hasil;
+
 }
 
 console.log(prime_factors(3))  // [3]
