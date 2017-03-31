@@ -6,6 +6,13 @@
 
 let prime_factors = (angka, hasil = []) => {
   // write your code here
+  for (var i=2; i<=angka; i++){
+    if(angka%i === 0){
+      hasil.push(i);
+      return prime_factors(angka/i, hasil);
+    }
+  }
+  return hasil;
 }
 
 console.log(prime_factors(3))  // [3]
@@ -20,6 +27,16 @@ console.log(prime_factors(123123123)) // [3, 3, 41, 333667]
 
 let simple_recursive = (number) => {
   // write your code here
+    var huruf = number.toString().split('');
+  var nomor = 1;
+  if (number < 10){
+    return number;
+  }else {
+    for (var i=0; i<huruf.length; i++){
+      nomor*=Number(huruf[i]);
+    }
+  }
+  return simple_recursive(nomor);
 }
 
 console.log(simple_recursive(39))  // 4
